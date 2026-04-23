@@ -21,8 +21,9 @@ btn.onclick = async () => {
 
     if (!resp.ok) throw new Error(data.error || 'Ошибка сервера');
 
-    statusEl.textContent = `Звонок создан: call_id = ${data.call_id}`;
+    statusEl.textContent = `Звонок создан! call_id: ${data.call_id}`;
 
+    // Здесь позже подключим Web SDK Retell
   } catch (err) {
     errorEl.textContent = err.message;
     statusEl.textContent = '';
