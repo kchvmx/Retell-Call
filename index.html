@@ -3,19 +3,83 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Retell Demo</title>
+  <title>AI Voice Agent Demo</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f3eaff; /* светло-фиолетовый фон */
+      font-family: Inter, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 420px;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 26px;
+      color: #4b2bbf; /* фиолетовый */
+    }
+
+    p {
+      color: #444;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #6b46c1;
+      color: #fff;
+      border: none;
+      padding: 14px 22px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #5933a8;
+    }
+
+    #status {
+      margin-top: 18px;
+      color: #4b2bbf;
+      font-weight: 500;
+    }
+
+    #error {
+      margin-top: 12px;
+      color: #c53030;
+      font-weight: 500;
+    }
+  </style>
 </head>
-<body style="font-family:Arial;padding:40px;background:#f5f5f5">
-  <h1>AI Voice Agent — Demo</h1>
-  <p>Нажмите кнопку, разрешите микрофон — и начнётся звонок.</p>
 
-  <button id="callBtn" style="padding:12px 20px;font-size:16px">
-    Позвонить агенту
-  </button>
+<body>
+  <div class="card">
+    <h1>AI Voice Agent</h1>
+    <p>Нажмите кнопку, разрешите микрофон — и сервер создаст звонок.</p>
 
-  <p id="status" style="margin-top:20px;color:#444"></p>
-  <p id="error" style="color:#c00"></p>
+    <button id="callBtn">Позвонить агенту</button>
+
+    <div id="status"></div>
+    <div id="error"></div>
+  </div>
 
   <script src="/script.js"></script>
 </body>
 </html>
+
