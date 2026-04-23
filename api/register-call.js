@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch('https://api.retellai.com/v1/calls', {
+    const response = await fetch('https://api.retell.ai/v1/calls', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${API_KEY}`,
