@@ -20,20 +20,36 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        agent_id: AGENT_ID,
-        call_type: "web"
+        agent_id: AGENT_ID
       })
     });
 
-    const data = await response.json();
+    const text = await response.text();
+
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      return res.status(500).json({
+        error: "Retell returned non‑JSON response",
+        raw: text
+      });
+    }
 
     if (!response.ok) {
-      return res.status(500).json({ error: 'Retell API error', details: data });
+      return res.status(500).json({
+        error: "Retell API error",
+        details: data
+      });
     }
 
     return res.status(200).json(data);
 
   } catch (err) {
-    return res.status(500).json({ error: 'Server error', details: err.message });
+    return res.status(500).json({
+      error: 'Server error',
+      details: err.message
+    });
   }
 }
+
